@@ -6,11 +6,12 @@
  @include('PageSections.head')
 
 </head>
- <body >  
+	 <body class="bg-grey-lighter font-Signika" >  
 
-        @yield('content')
+			
+				  @yield('content')
+			
 
-<div class="test">sdfgsdffgfdl;fd;lfdllfglldfl</div>
-</body>
+	</body>
 </html>
 

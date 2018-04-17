@@ -212,6 +212,7 @@ module.exports = {
 
   fonts: {
     sans: [
+     "Signika",
       "system-ui",
       "BlinkMacSystemFont",
       "-apple-system",
@@ -245,6 +246,7 @@ module.exports = {
       "Courier New",
       "monospace"
     ]
+    
   },
 
   /*
@@ -451,6 +453,7 @@ module.exports = {
     sm: ".125rem",
     default: ".25rem",
     lg: ".5rem",
+    xlg: "3.5rem",
     full: "9999px"
   },
 
@@ -521,8 +524,9 @@ module.exports = {
   */
 
   height: {
-    auto: "auto",
-    px: "1px",
+    
+   "auto": "auto",
+    "px": "1px",
     "1": "0.25rem",
     "2": "0.5rem",
     "3": "0.75rem",
@@ -535,10 +539,11 @@ module.exports = {
     "18": "5rem",
     "24": "6rem",
     "32": "8rem",
+    "34": "9rem",
     "48": "12rem",
     "64": "16rem",
-    full: "100%",
-    screen: "100vh"
+    "full": "100%",
+    "screen": "100vh"
   },
 
   /*
@@ -557,7 +562,7 @@ module.exports = {
 
   minWidth: {
     "0": "0",
-    full: "100%"
+    full": "100%"
   },
 
   /*
@@ -577,7 +582,8 @@ module.exports = {
   minHeight: {
     "0": "0",
     full: "100%",
-    screen: "100vh"
+    screen: "100vh",
+    "32": "8rem"
   },
 
   /*
@@ -643,7 +649,7 @@ module.exports = {
   */
 
   padding: {
-    px: "1px",
+    "px": "1px",
     "0": "0",
     "1": "0.25rem",
     "2": "0.5rem",
@@ -651,7 +657,17 @@ module.exports = {
     "4": "1rem",
     "6": "1.5rem",
     "8": "2rem",
-    "60": "60px"
+    "9": "2.25rem",
+    "10": "2.50rem",
+    "11": "2.75rem",
+    "12": "3rem",
+    "13": "3.25rem",
+    "14": "3.50rem",
+    "15": "3.75rem",
+    "18": "4.50rem",
+    "20": "5rem",
+    "24": "6rem",
+
   },
 
   /*
@@ -670,15 +686,26 @@ module.exports = {
   */
 
   margin: {
-    auto: "auto",
-    px: "1px",
+    "auto": "auto",
+    "px": "1px",
     "0": "0",
     "1": "0.25rem",
     "2": "0.5rem",
     "3": "0.75rem",
     "4": "1rem",
     "6": "1.5rem",
-    "8": "2rem"
+    "8": "2rem",
+    "9": "2.25rem",
+    "10": "2.50rem",
+    "11": "2.75rem",
+    "12": "3rem",
+    "13": "3.25rem",
+    "14": "3.50rem",
+    "15": "3.75rem",
+    "18": "4.50rem",
+    "20": "5rem",
+    "24": "6rem",
+    
   },
 
   /*
@@ -697,14 +724,15 @@ module.exports = {
   */
 
   negativeMargin: {
-    px: "1px",
+    "px": "1px",
     "0": "0",
     "1": "0.25rem",
     "2": "0.5rem",
     "3": "0.75rem",
     "4": "1rem",
     "6": "1.5rem",
-    "8": "2rem"
+    "8": "2rem",
+    "10": "3rem"
   },
 
   /*
@@ -896,6 +924,10 @@ module.exports = {
     require("tailwindcss/plugins/container")({
       // center: true,
       // padding: '1rem',
+
+
+
+
     })
   ],
 
