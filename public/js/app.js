@@ -963,13 +963,12 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(42);
+module.exports = __webpack_require__(38);
 
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
-
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -987,10 +986,44 @@ window.Vue = __webpack_require__(35);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(38));
-
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  delimiters: ['${', '}'],
+  data: {
+    ECoffee: 10,
+    DCoffee: 1
+  },
+  filters: {
+    blupp: function blupp(value) {
+      return "00" + value;
+    }
+  },
+  methods: {
+
+    coffeeOpen: function coffeeOpen() {}
+
+  }
+
+});
+
+var app2 = new Vue({
+
+  el: '#app2',
+  delimiters: ['${', '}'],
+  data: {
+    ECoffee2: 8,
+    DCoffee2: 2
+  },
+  filters: {
+    blupp: function blupp(value) {
+      return "00" + value;
+    }
+  },
+  methods: {
+
+    coffeeOpen: function coffeeOpen() {}
+
+  }
 });
 
 /***/ }),
@@ -43058,237 +43091,9 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 /* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(39)
-/* script */
-var __vue_script__ = __webpack_require__(40)
-/* template */
-var __vue_template__ = __webpack_require__(41)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
-  } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 39 */
 /***/ (function(module, exports) {
 
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _vm._v(
-                "\n                    I'm an example component!\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
-  }
-}
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed: ModuleBuildError: Module build failed: /home/muha/Projekte/CAP/coffee-app/tailwind.js:565\n    full\": \"100%\"\n        ^^^^\n\nSyntaxError: Unexpected string\n    at createScript (vm.js:56:10)\n    at Object.runInThisContext (vm.js:97:10)\n    at Module._compile (module.js:549:28)\n    at Object.Module._extensions..js (module.js:586:10)\n    at Module.load (module.js:494:32)\n    at tryModuleLoad (module.js:453:12)\n    at Function.Module._load (module.js:445:3)\n    at Module.require (module.js:504:17)\n    at require (internal/module.js:20:19)\n    at lazyConfig (/home/muha/Projekte/CAP/coffee-app/node_modules/tailwindcss/lib/index.js:66:51)\n    at /home/muha/Projekte/CAP/coffee-app/node_modules/tailwindcss/lib/lib/substituteTailwindAtRules.js:9:29\n    at LazyResult.run (/home/muha/Projekte/CAP/coffee-app/node_modules/postcss/lib/lazy-result.js:277:20)\n    at LazyResult.asyncTick (/home/muha/Projekte/CAP/coffee-app/node_modules/postcss/lib/lazy-result.js:192:32)\n    at LazyResult.asyncTick (/home/muha/Projekte/CAP/coffee-app/node_modules/postcss/lib/lazy-result.js:204:22)\n    at processing.Promise.then._this2.processed (/home/muha/Projekte/CAP/coffee-app/node_modules/postcss/lib/lazy-result.js:231:20)\n    at LazyResult.async (/home/muha/Projekte/CAP/coffee-app/node_modules/postcss/lib/lazy-result.js:228:27)\n    at LazyResult.then (/home/muha/Projekte/CAP/coffee-app/node_modules/postcss/lib/lazy-result.js:134:21)\n    at Promise.resolve.then.then (/home/muha/Projekte/CAP/coffee-app/node_modules/postcss-loader/lib/index.js:149:8)\n    at process._tickCallback (internal/process/next_tick.js:109:7)\n    at runLoaders (/home/muha/Projekte/CAP/coffee-app/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /home/muha/Projekte/CAP/coffee-app/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /home/muha/Projekte/CAP/coffee-app/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/home/muha/Projekte/CAP/coffee-app/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Promise.resolve.then.then.catch (/home/muha/Projekte/CAP/coffee-app/node_modules/postcss-loader/lib/index.js:198:71)\n    at process._tickCallback (internal/process/next_tick.js:109:7)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
