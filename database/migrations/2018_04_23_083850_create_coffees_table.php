@@ -15,15 +15,19 @@ class CreateCoffeesTable extends Migration
     {
         Schema::create('coffees', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('billed');
+            $table->boolean('billed')->default(false);
             $table->integer('price');
             $table->enum('size', ['single', 'double']);
-            $table->integer('drinkerId')->unsigned();
-            $table->foreign('drinkerId')->references('id')->on('drinkers');
-            $table->integer('reportId')->unsigned();
-            $table->foreign('reportId')->references('id')->on('reports');
+            $table->integer('report_id')->unsigned()->nullable();
+            $table->integer('drinker_id')->unsigned();
             $table->timestamps();
+
         });
+         Schema::table('coffees', function (Blueprint $table) { 
+            $table->foreign('report_id')->references('id')->on('reports');
+            $table->foreign('drinker_id')->references('id')->on('drinkers');
+        });
+        
     }
 
     /**

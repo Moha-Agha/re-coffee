@@ -9,8 +9,7 @@ class Drinker extends Model
     
 
     public function coffees(){
-    	return $this->hasMany('App\coffee');
+    	return $this->hasMany('App\Coffee');
     }
-
 
 }

@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coffee extends Model
 {
-
-    public function drinker(){
+      public function drinker(){
     	return $this->belongsTo('App\Drinker');
     }
 

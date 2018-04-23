@@ -8,6 +8,6 @@ class Report extends Model
 {
 
     public function coffees(){
-    	return $this->hasMany('App\coffee');
+    	return $this->hasMany('app\coffee');
     }
 }
