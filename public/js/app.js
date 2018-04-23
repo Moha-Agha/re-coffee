@@ -1015,8 +1015,14 @@ var app2 = new Vue({
     DCoffee2: 2
   },
   filters: {
-    blupp: function blupp(value) {
-      return "00" + value;
+    nullMe: function nullMe(value) {
+      if (value < 10) {
+        return "00" + value;
+      } else if (value < 99) {
+        return "0" + value;
+      } else {
+        return value;
+      }
     }
   },
   methods: {
@@ -1025,6 +1031,47 @@ var app2 = new Vue({
 
   }
 });
+
+// accoredion
+
+Vue.transition('slideTop', {
+  css: false,
+  enter: function enter(el, done) {
+    $(el).hide();
+    $(el).velocity('slideDown', { duration: 700, easing: [200, 12], complete: done });
+  },
+  enterCancelled: function enterCancelled(el) {
+    $(el).stop();
+  },
+  leave: function leave(el, done) {
+    $(el).velocity('slideUp', { duration: 350, easing: 'ease-out', complete: done });
+  },
+  leaveCancelled: function leaveCancelled(el) {
+    $(el).stop();
+  }
+});
+
+Vue.component('accordion', {
+  template: '#accordion',
+  components: {
+    heading: {
+      template: '#heading'
+    },
+    content: {
+      template: '#content'
+    }
+  },
+  props: {
+    open: { // toggles accordion
+      type: Boolean,
+      default: false
+    },
+    id: { type: String },
+    class: { type: String }
+  }
+});
+
+new Vue({ el: 'main' });
 
 /***/ }),
 /* 11 */
