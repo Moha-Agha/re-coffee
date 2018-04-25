@@ -1,0 +1,4 @@
+.my-table tr:last-child {
+  border: none;
+}
+

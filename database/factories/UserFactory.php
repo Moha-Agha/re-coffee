@@ -13,11 +13,37 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+// $factory->define(App\User::class, function (Faker $faker) {
+//     return [
+//         'name' => $faker->name,
+//         'email' => $faker->unique()->safeEmail,
+//         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+//         'remember_token' => str_random(10),
+//     ];
+// });
+
+
+
+$factory->define(App\Drinker::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Report::class, function (Faker $faker) {
+    return [
+        'filename' => $faker->url, // string('filename');     
+    ];
+});
+
+$factory->define(App\Coffee::class, function (Faker $faker) {
+    return [
+        // 'billed' => $faker->randomElement($array = array ('0','1')), // boolean('billed');
+        'price' => $faker->randomElement($array = array ('100','50')), // integer('price');
+        'size' => $faker->randomElement($array = array ('single','double')), // enum('size', ['single', 'double']);
+        // 'reportId' => App\Report::all()->random()->id, // integer('reportId')->unsigned();
+        'drinker_id' => App\Drinker::all()->random()->id, // integer('drinkerId')->unsigned();
+    ];
+});
+        
+         

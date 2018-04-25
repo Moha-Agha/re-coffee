@@ -1,3 +1,4 @@
+
 <div id="app">
 
 	<div class="mb-8 mx-4 relative pt-4 min-h-32 ">
@@ -14,7 +15,7 @@
 				  <div class="w-3/5">
 					  	<div class="mt-4  flex justify-between items-center">
 					  	
-					  	<span class=" block text-orange-darkest text-5xl font-bold font-sans">Johannes <span class="text-yellow-dark">${ ECoffee }/${ DCoffee }</span> </span>	
+					  	<span class=" block text-orange-darkest text-5xl font-bold font-sans">Johannes <span class="text-yellow-dark">${ ECoffee|nullMe }/${ DCoffee|nullMe}</span> </span>	
 
 						</div>
 					</div>
@@ -32,7 +33,7 @@
 			<div  id="coffeeOrder" class="coffeeOrders px-6 bg-white rounded-b-lg mb-8 mt-20 z-10 pt-20 pb-20  ">
 					<div class="flex w-full justify-around pt-8">
 						<button v-on:click="ECoffee += 1">
-							<span class="font-sans text-white text-center pt-3 text-2xl font-bold absolute bg-green rounded-full h-12 w-12 z-10 ">${ ECoffee }</span>
+							<span class="font-sans text-white text-center pt-3 text-2xl font-bold absolute bg-green rounded-full h-12 w-12 z-10 ">${ ECoffee|nullMe }</span>
 							<div class="h-32">
 								<img class=" h-24 mt-6" src="img/einfacher-Coffee.svg">
 							</div>
@@ -45,7 +46,7 @@
 						<span class="h-45 bg-grey-lighter w-1"></span>
 
 						<button v-on:click="DCoffee += 1" >
-							<span class="font-sans text-white text-center pt-3 text-2xl font-bold  bg-green rounded-full h-12 w-12 z-10 absolute ">${ DCoffee }</span>
+							<span class="font-sans text-white text-center pt-3 text-2xl font-bold  bg-green rounded-full h-12 w-12 z-10 absolute ">${ DCoffee|nullMe }</span>
 							<div class="h-32 ">		
 								<img class=" h-24 mt-6" src="img/Doppelter-Coffee.svg">
 							</div>
@@ -133,11 +134,11 @@ function coffeeOpen() {
     var coffeeClose = document.getElementById("coffeeClose");
     coffeeClose.classList.remove("hidden");
     coffeeClose.style.transform = "rotate(47deg)";
-    setInterval(function(){ 
-    var coffeeOrder = document.getElementById("coffeeOrder");
-    coffeeOrder.classList.add("hidden");
-    coffeeClose.style.transform = "rotate(0deg)";
-     }, 99999);
+    // setInterval(function(){ 
+    // var coffeeOrder = document.getElementById("coffeeOrder");
+    // coffeeOrder.classList.add("hidden");
+    // coffeeClose.style.transform = "rotate(0deg)";
+    //  }, 99999);
 
 }
 
@@ -162,11 +163,11 @@ function coffeeOpen2() {
     var coffeeClose = document.getElementById("coffeeClose2");
     coffeeClose.classList.remove("hidden");
     coffeeClose.style.transform = "rotate(47deg)";
-      setInterval(function(){ 
-    var coffeeOrder = document.getElementById("coffeeOrder2");
-    coffeeOrder.classList.add("hidden");
-    coffeeClose.style.transform = "rotate(0deg)";
-     }, 99999);
+    //   setInterval(function(){ 
+    // var coffeeOrder = document.getElementById("coffeeOrder2");
+    // coffeeOrder.classList.add("hidden");
+    // coffeeClose.style.transform = "rotate(0deg)";
+    //  }, 99999);
 }
 
 /* closs the order bourd */
