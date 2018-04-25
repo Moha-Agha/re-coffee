@@ -1,5 +1,4 @@
 
-
 <div id="app">
 
 	<div class="mb-8 mx-4 relative pt-4 min-h-32 ">

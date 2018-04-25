@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coffee extends Model
 {
-      public function drinker(){
+    public  function find()
+    {
+    }
+
+    public function drinker(){
     	return $this->belongsTo('App\Drinker');
     }
 
